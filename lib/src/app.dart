@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_instagram/src/controller/bottom_nav_controller.dart';
+import 'package:flutter_instagram/src/view/home.dart';
 import 'package:flutter_instagram/src/widget/image_avatar.dart';
 import 'package:flutter_instagram/src/widget/image_data.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
@@ -13,9 +14,6 @@ class App extends GetView<BottomNavigationController> {
       () => WillPopScope(
         onWillPop: controller.popAction,
         child: Scaffold(
-          appBar: AppBar(
-            title: const Text('App Bar'),
-          ),
           body: _body(),
           bottomNavigationBar: _bottom(),
         ),
@@ -32,6 +30,7 @@ class App extends GetView<BottomNavigationController> {
       type: BottomNavigationBarType.fixed,
       selectedItemColor: Colors.blue,
       unselectedItemColor: Colors.black,
+      backgroundColor: Colors.white,
       items: [
         BottomNavigationBarItem(
             icon: ImageData(
@@ -85,9 +84,7 @@ class App extends GetView<BottomNavigationController> {
     return IndexedStack(
       index: controller.pageIndex,
       children: [
-        Container(
-          color: Colors.red,
-        ),
+        const Home(),
         Container(
           color: Colors.blue,
         ),

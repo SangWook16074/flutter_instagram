@@ -23,4 +23,7 @@ class ImagePath {
   static String get upload => 'assets/images/bottom_nav_upload_icon.jpg';
   static String get reelsOn => 'assets/images/bottom_nav_reels_on_icon.png';
   static String get reelsOff => 'assets/images/bottom_nav_reels_off_icon.png';
+  static String get logo => 'assets/images/logo.jpg';
+  static String get active => 'assets/images/bottom_nav_active_off_icon.jpg';
+  static String get dm => 'assets/images/direct_msg_icon.jpg';
 }

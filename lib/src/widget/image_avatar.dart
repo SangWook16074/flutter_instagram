@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-enum AvatarType { ON, OFF }
+enum AvatarType { ON, OFF, STORY }
 
 class ImageAvatar extends StatelessWidget {
   final double width;
@@ -13,6 +13,8 @@ class ImageAvatar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     switch (type) {
+      case AvatarType.STORY:
+        return _storyAvatar();
       case AvatarType.ON:
         return _onImage();
       case AvatarType.OFF:
@@ -22,7 +24,7 @@ class ImageAvatar extends StatelessWidget {
 
   Widget _offImage() {
     return SizedBox(
-      width: width / Get.mediaQuery.devicePixelRatio,
+      width: 70 / Get.mediaQuery.devicePixelRatio,
       child: CircleAvatar(
         child: Container(
           padding: const EdgeInsets.all(2.0),
@@ -36,7 +38,7 @@ class ImageAvatar extends StatelessWidget {
 
   Widget _onImage() {
     return SizedBox(
-      width: width / Get.mediaQuery.devicePixelRatio,
+      width: 70 / Get.mediaQuery.devicePixelRatio,
       child: CircleAvatar(
         child: Container(
           padding: const EdgeInsets.all(1.0),
@@ -56,11 +58,31 @@ class ImageAvatar extends StatelessWidget {
 
   Widget _basicImage() {
     return ClipRRect(
-      borderRadius: BorderRadius.circular(100),
+      borderRadius: BorderRadius.circular(65),
       child: Image.network(
         url,
-        fit: BoxFit.contain,
+        fit: BoxFit.cover,
       ),
     );
+  }
+
+  Widget _storyAvatar() {
+    return Container(
+        padding: const EdgeInsets.all(3.5),
+        decoration: const BoxDecoration(
+            shape: BoxShape.circle,
+            gradient: LinearGradient(
+                begin: Alignment.bottomLeft,
+                end: Alignment.topRight,
+                colors: [
+                  Color(0xfffce80a),
+                  Color(0xfffc3a0a),
+                  Color(0xffc80afc),
+                ])),
+        child: Container(
+            padding: const EdgeInsets.all(2.0),
+            decoration: const BoxDecoration(
+                shape: BoxShape.circle, color: Colors.white),
+            child: _basicImage()));
   }
 }
