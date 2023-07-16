@@ -16,7 +16,7 @@ class Home extends StatelessWidget {
           slivers: <Widget>[
             _appBar(),
             _story(),
-            _body(),
+            // _body(),
           ],
         ),
       ),
@@ -67,24 +67,52 @@ class Home extends StatelessWidget {
 
   Widget _story() {
     return SliverToBoxAdapter(
-      child: SizedBox(
-        height: 100,
-        child: SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: Row(
-            children: List.generate(
-              50,
-              (index) => Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: ImageAvatar(
-                    type: AvatarType.STORY,
-                    width: Get.size.width * 0.23,
+      child: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Row(children: [
+          Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: ImageAvatar(
+                    width: Get.size.width * 0.2,
                     url:
                         'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnnnObTCNg1QJoEd9Krwl3kSUnPYTZrxb5Ig&usqp=CAU',
-                  )),
+                    type: AvatarType.MYSTORY),
+              ),
+              const Padding(
+                padding: EdgeInsets.all(4.0),
+                child: Text('내 스토리'),
+              )
+            ],
+          ),
+          ...List.generate(
+            20,
+            (index) => SizedBox(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(4.0),
+                    child: ImageAvatar(
+                      width: Get.size.width * 0.2,
+                      type: AvatarType.STORY,
+                      url:
+                          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS75ebrwvgVW5Ks_oLfCbG8Httf3_9g-Ynl_Q&usqp=CAU',
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(4.0),
+                    child: Text(
+                      '$index번째 사용자',
+                      textAlign: TextAlign.center,
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
-        ),
+        ]),
       ),
     );
   }
