@@ -1,7 +1,8 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_instagram/src/widget/image_data.dart';
 
-enum AvatarType { ON, OFF, STORY, MYSTORY }
+enum AvatarType { ON, OFF, STORY, MYSTORY, BASIC }
 
 class ImageAvatar extends StatelessWidget {
   final double width;
@@ -17,16 +18,13 @@ class ImageAvatar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    switch (type) {
-      case AvatarType.STORY:
-        return _storyAvatar();
-      case AvatarType.ON:
-        return _onImage();
-      case AvatarType.OFF:
-        return _offImage();
-      case AvatarType.MYSTORY:
-        return _myStoryAvatar();
-    }
+    return switch (type) {
+      AvatarType.BASIC => _basicImage(),
+      AvatarType.STORY => _storyAvatar(),
+      AvatarType.ON => _onImage(),
+      AvatarType.OFF => _offImage(),
+      AvatarType.MYSTORY => _myStoryAvatar(),
+    };
   }
 
   Widget _offImage() {
@@ -58,8 +56,8 @@ class ImageAvatar extends StatelessWidget {
       child: SizedBox(
         width: width,
         height: width,
-        child: Image.network(
-          url,
+        child: CachedNetworkImage(
+          imageUrl: url,
           fit: BoxFit.cover,
         ),
       ),

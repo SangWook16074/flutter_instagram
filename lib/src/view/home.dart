@@ -1,6 +1,5 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
+import 'package:flutter_instagram/src/widget/feed.dart';
 import 'package:flutter_instagram/src/widget/image_avatar.dart';
 import 'package:flutter_instagram/src/widget/image_data.dart';
 import 'package:get/get.dart';
@@ -16,7 +15,7 @@ class Home extends StatelessWidget {
           slivers: <Widget>[
             _appBar(),
             _story(),
-            // _body(),
+            _body(),
           ],
         ),
       ),
@@ -55,10 +54,17 @@ class Home extends StatelessWidget {
           (context, index) => Column(
                 children: List.generate(
                     50,
-                    (index) => Container(
-                          height: 50,
-                          color: Colors.primaries[
-                              Random().nextInt(Colors.primaries.length)],
+                    (index) => const Feed(
+                          authorUrl:
+                              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnnnObTCNg1QJoEd9Krwl3kSUnPYTZrxb5Ig&usqp=CAU',
+                          authorName: '_ugsxng99',
+                          images: [
+                            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnnnObTCNg1QJoEd9Krwl3kSUnPYTZrxb5Ig&usqp=CAU',
+                            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRisv-yQgXGrto6OxQxX62JyvyQGvRsQQ760g&usqp=CAU',
+                            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQifBWUhSiSfL0t8M3XCOe8aIyS6de2xWrt5A&usqp=CAU',
+                          ],
+                          countLikes: 12,
+                          countComment: 6,
                         )),
               ),
           childCount: 1),
