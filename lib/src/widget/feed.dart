@@ -242,15 +242,60 @@ class _FeedState extends State<Feed> {
                 color: Colors.black26,
               ),
               Expanded(
-                child: ListView.builder(itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Container(
-                      height: 30,
-                      color: Colors.black,
-                    ),
-                  );
-                }),
+                child: ListView.builder(
+                    itemCount: widget.countComment,
+                    itemBuilder: (context, index) {
+                      return Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Row(
+                          children: [
+                            const Padding(
+                              padding: EdgeInsets.all(4.0),
+                              child: Column(
+                                children: [
+                                  ImageAvatar(
+                                      url:
+                                          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRisv-yQgXGrto6OxQxX62JyvyQGvRsQQ760g&usqp=CAU',
+                                      type: AvatarType.BASIC)
+                                ],
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(4.0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.all(2.0),
+                                    child: Text(
+                                      '$index _user',
+                                      textAlign: TextAlign.start,
+                                      style: const TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.all(2.0),
+                                    child: Text(
+                                      '$index 번째 댓글입니다.',
+                                    ),
+                                  ),
+                                  const Padding(
+                                    padding: EdgeInsets.all(2.0),
+                                    child: Text(
+                                      '답글 달기',
+                                      style: TextStyle(
+                                          color: Colors.black45, fontSize: 13),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      );
+                    }),
               ),
             ],
           );
