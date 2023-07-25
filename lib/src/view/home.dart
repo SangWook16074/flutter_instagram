@@ -27,7 +27,7 @@ class Home extends StatelessWidget {
       floating: true,
       title: ImageData(
         path: ImagePath.logo,
-        width: 300,
+        width: 400,
       ),
       actions: [
         GestureDetector(
