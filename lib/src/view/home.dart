@@ -55,9 +55,9 @@ class Home extends StatelessWidget {
                 children: List.generate(
                     50,
                     (index) => const Feed(
-                          authorUrl:
+                          userUrl:
                               'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnnnObTCNg1QJoEd9Krwl3kSUnPYTZrxb5Ig&usqp=CAU',
-                          authorName: '_ugsxng99',
+                          userName: '_ugsxng99',
                           images: [
                             'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnnnObTCNg1QJoEd9Krwl3kSUnPYTZrxb5Ig&usqp=CAU',
                             'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRisv-yQgXGrto6OxQxX62JyvyQGvRsQQ760g&usqp=CAU',
