@@ -8,15 +8,15 @@ import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class Feed extends StatefulWidget {
-  final String authorUrl;
-  final String authorName;
+  final String userUrl;
+  final String userName;
   final List<String> images;
   final int countLikes;
   final int countComment;
   const Feed(
       {super.key,
-      required this.authorUrl,
-      required this.authorName,
+      required this.userUrl,
+      required this.userName,
       required this.images,
       required this.countLikes,
       required this.countComment});
@@ -35,7 +35,7 @@ class _FeedState extends State<Feed> {
         _header(),
         _images(),
         _options(),
-        _comment(),
+        // _comment(),
       ],
     );
   }
@@ -50,14 +50,14 @@ class _FeedState extends State<Feed> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: ImageAvatar(
-                url: widget.authorUrl,
+                url: widget.userUrl,
                 type: AvatarType.BASIC,
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
-                widget.authorName,
+                widget.userName,
                 style: const TextStyle(
                     color: Colors.black,
                     fontSize: 15,
@@ -183,7 +183,7 @@ class _FeedState extends State<Feed> {
               '컨텐츠 입니다.\n컨텐츠 입니다.\n컨텐츠 입니다.\n컨텐츠 입니다.\n컨텐츠 입니다.',
               expandText: '더보기',
               linkColor: Colors.grey,
-              prefixText: widget.authorName,
+              prefixText: widget.userName,
               prefixStyle:
                   const TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
             ),

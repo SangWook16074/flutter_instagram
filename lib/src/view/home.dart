@@ -49,25 +49,20 @@ class Home extends StatelessWidget {
   }
 
   Widget _body() {
-    return SliverList(
-      delegate: SliverChildBuilderDelegate(
-          (context, index) => Column(
-                children: List.generate(
-                    50,
-                    (index) => const Feed(
-                          userUrl:
-                              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnnnObTCNg1QJoEd9Krwl3kSUnPYTZrxb5Ig&usqp=CAU',
-                          userName: '_ugsxng99',
-                          images: [
-                            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnnnObTCNg1QJoEd9Krwl3kSUnPYTZrxb5Ig&usqp=CAU',
-                            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRisv-yQgXGrto6OxQxX62JyvyQGvRsQQ760g&usqp=CAU',
-                            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQifBWUhSiSfL0t8M3XCOe8aIyS6de2xWrt5A&usqp=CAU',
-                          ],
-                          countLikes: 12,
-                          countComment: 6,
-                        )),
-              ),
-          childCount: 1),
+    return SliverList.builder(
+      itemCount: 50,
+      itemBuilder: (context, index) => const Feed(
+        userUrl:
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnnnObTCNg1QJoEd9Krwl3kSUnPYTZrxb5Ig&usqp=CAU',
+        userName: '_ugsxng99',
+        images: [
+          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnnnObTCNg1QJoEd9Krwl3kSUnPYTZrxb5Ig&usqp=CAU',
+          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRisv-yQgXGrto6OxQxX62JyvyQGvRsQQ760g&usqp=CAU',
+          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQifBWUhSiSfL0t8M3XCOe8aIyS6de2xWrt5A&usqp=CAU',
+        ],
+        countLikes: 12,
+        countComment: 6,
+      ),
     );
   }
 
