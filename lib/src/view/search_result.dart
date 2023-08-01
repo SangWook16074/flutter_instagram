@@ -11,12 +11,8 @@ class SearchResult extends GetView<SearchFocusController> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        automaticallyImplyLeading: false,
-        leading: GestureDetector(
-            onTap: Get.back, child: const Icon(Icons.arrow_back_ios)),
         title: SearchTextField(
-            focus: false,
-            controller: Get.find<SearchFocusController>().searchController),
+            focus: false, controller: controller.searchController),
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(50),
           child: Container(

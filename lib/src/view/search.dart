@@ -28,7 +28,9 @@ class Search extends StatelessWidget {
       title: InkWell(
         onTap: () {
           Get.to(() => const SearchFocus(),
-              transition: Transition.fadeIn, binding: SearchFocusBinding());
+              transition: Transition.fadeIn,
+              binding: SearchFocusBinding(),
+              id: 1);
         },
         child: Container(
           padding: const EdgeInsets.all(8.0),

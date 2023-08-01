@@ -15,7 +15,7 @@ class SearchTextField extends StatelessWidget {
       width: double.infinity,
       decoration: BoxDecoration(borderRadius: BorderRadius.circular(8.0)),
       child: TextField(
-        autofocus: true,
+        autofocus: focus,
         onSubmitted: Get.find<SearchFocusController>().submitted,
         controller: controller,
         cursorColor: const Color(0xff7f7f7f),

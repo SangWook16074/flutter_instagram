@@ -5,8 +5,13 @@ import 'package:get/get.dart';
 class SearchFocusController extends GetxController
     with GetSingleTickerProviderStateMixin {
   final TextEditingController _controller = TextEditingController();
-
   late TabController _tab;
+
+  @override
+  void onInit() {
+    super.onInit();
+    _tab = TabController(length: _tabs.length, vsync: this);
+  }
 
   final List<Widget> _tabs = [
     const Tab(
@@ -34,7 +39,6 @@ class SearchFocusController extends GetxController
   List<Widget> get tabs => _tabs;
 
   void submitted(String value) {
-    Get.to(() => const SearchResult());
-    _tab = TabController(length: _tabs.length, vsync: this);
+    Get.off(() => const SearchResult(), id: 1);
   }
 }
