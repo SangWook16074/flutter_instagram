@@ -1,7 +1,9 @@
-import 'dart:math';
-
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:flutter_instagram/src/bindings/search_focus_binding.dart';
+import 'package:flutter_instagram/src/view/search_focus.dart';
+import 'package:flutter_instagram/src/widget/search_grid_view.dart';
+import 'package:get/get.dart';
 
 class Search extends StatelessWidget {
   const Search({super.key});
@@ -24,10 +26,12 @@ class Search extends StatelessWidget {
     return SliverAppBar(
       floating: true,
       title: InkWell(
-        onTap: () {},
+        onTap: () {
+          Get.to(() => const SearchFocus(),
+              transition: Transition.fadeIn, binding: SearchFocusBinding());
+        },
         child: Container(
-          padding: const EdgeInsets.all(9.0),
-          margin: const EdgeInsets.all(2.0),
+          padding: const EdgeInsets.all(8.0),
           height: 40,
           decoration: BoxDecoration(
               color: Colors.black12, borderRadius: BorderRadius.circular(8.0)),
@@ -38,11 +42,12 @@ class Search extends StatelessWidget {
                 child: Icon(
                   Icons.search,
                   color: Color(0xff7d7d7d),
+                  size: 20.0,
                 ),
               ),
               Text(
                 '검색',
-                style: TextStyle(color: Color(0xff7d7d7d)),
+                style: TextStyle(color: Color(0xff7d7d7d), fontSize: 18),
               )
             ],
           ),
@@ -52,64 +57,11 @@ class Search extends StatelessWidget {
   }
 
   Widget _body() {
-    return SliverGrid.builder(
-      gridDelegate: SliverQuiltedGridDelegate(
-        mainAxisSpacing: 1,
-        crossAxisSpacing: 1,
-        crossAxisCount: 3,
-        repeatPattern: QuiltedGridRepeatPattern.same,
-        pattern: [
-          //패턴 1
-          const QuiltedGridTile(1, 1),
-          const QuiltedGridTile(1, 1),
-          const QuiltedGridTile(2, 1),
-          const QuiltedGridTile(1, 1),
-          const QuiltedGridTile(1, 1),
-          //패턴 2
-          const QuiltedGridTile(2, 1),
-          const QuiltedGridTile(1, 1),
-          const QuiltedGridTile(1, 1),
-          const QuiltedGridTile(1, 1),
-          const QuiltedGridTile(1, 1),
-          //패턴 3
-          const QuiltedGridTile(1, 1),
-          const QuiltedGridTile(1, 1),
-          const QuiltedGridTile(2, 1),
-          const QuiltedGridTile(1, 1),
-          const QuiltedGridTile(1, 1),
-          //패턴 4
-          const QuiltedGridTile(2, 2),
-          const QuiltedGridTile(1, 1),
-          const QuiltedGridTile(1, 1),
-          //패턴 5
-          const QuiltedGridTile(1, 1),
-          const QuiltedGridTile(1, 1),
-          const QuiltedGridTile(2, 1),
-          const QuiltedGridTile(1, 1),
-          const QuiltedGridTile(1, 1),
-          //패턴 6
-          const QuiltedGridTile(2, 1),
-          const QuiltedGridTile(1, 1),
-          const QuiltedGridTile(1, 1),
-          const QuiltedGridTile(1, 1),
-          const QuiltedGridTile(1, 1),
-          //패턴 7
-          const QuiltedGridTile(1, 1),
-          const QuiltedGridTile(1, 1),
-          const QuiltedGridTile(2, 1),
-          const QuiltedGridTile(1, 1),
-          const QuiltedGridTile(1, 1),
-          //패턴 8
-          const QuiltedGridTile(2, 1),
-          const QuiltedGridTile(1, 1),
-          const QuiltedGridTile(1, 1),
-          const QuiltedGridTile(1, 1),
-          const QuiltedGridTile(1, 1),
-        ],
-      ),
-      itemCount: 50,
-      itemBuilder: (context, index) => Container(
-        color: Colors.primaries[Random().nextInt(Colors.primaries.length)],
+    return SearchGridView(
+      child: CachedNetworkImage(
+        imageUrl:
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS75ebrwvgVW5Ks_oLfCbG8Httf3_9g-Ynl_Q&usqp=CAU',
+        fit: BoxFit.cover,
       ),
     );
   }
