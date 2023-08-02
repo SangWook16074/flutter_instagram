@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:expandable_text/expandable_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_instagram/src/widget/comment_bottom_sheet.dart';
 import 'package:flutter_instagram/src/widget/image_avatar.dart';
 import 'package:flutter_instagram/src/widget/image_data.dart';
 import 'package:get/get.dart';
@@ -237,76 +238,6 @@ class _FeedState extends State<Feed> {
         useSafeArea: true,
         shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(top: Radius.circular(25.0))),
-        builder: (_) => Column(
-              children: [
-                const Center(
-                  child: Text(
-                    '댓글',
-                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-                  ),
-                ),
-                const Divider(
-                  height: 10,
-                  color: Colors.black26,
-                ),
-                Expanded(
-                  child: ListView.builder(
-                      itemCount: 50,
-                      itemBuilder: (_, index) {
-                        return Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Row(
-                            children: [
-                              const Padding(
-                                padding: EdgeInsets.all(4.0),
-                                child: Column(
-                                  children: [
-                                    ImageAvatar(
-                                        url:
-                                            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRisv-yQgXGrto6OxQxX62JyvyQGvRsQQ760g&usqp=CAU',
-                                        type: AvatarType.BASIC)
-                                  ],
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(4.0),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.all(2.0),
-                                      child: Text(
-                                        '$index _user',
-                                        textAlign: TextAlign.start,
-                                        style: const TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.all(2.0),
-                                      child: Text(
-                                        '$index 번째 댓글입니다.',
-                                      ),
-                                    ),
-                                    const Padding(
-                                      padding: EdgeInsets.all(2.0),
-                                      child: Text(
-                                        '답글 달기',
-                                        style: TextStyle(
-                                            color: Colors.black45,
-                                            fontSize: 13),
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
-                        );
-                      }),
-                )
-              ],
-            ));
+        builder: (_) => const CommentBottomSheet());
   }
 }

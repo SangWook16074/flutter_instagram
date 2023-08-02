@@ -26,7 +26,15 @@ class Search extends StatelessWidget {
     return SliverAppBar(
       floating: true,
       title: InkWell(
+        highlightColor: Colors.black26,
+        borderRadius: BorderRadius.circular(8.0),
         onTap: () {
+          Get.to(() => const SearchFocus(),
+              transition: Transition.fadeIn,
+              binding: SearchFocusBinding(),
+              id: 1);
+        },
+        onLongPress: () {
           Get.to(() => const SearchFocus(),
               transition: Transition.fadeIn,
               binding: SearchFocusBinding(),
@@ -40,7 +48,7 @@ class Search extends StatelessWidget {
           child: const Row(
             children: [
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 2.0),
+                padding: EdgeInsets.symmetric(horizontal: 8.0),
                 child: Icon(
                   Icons.search,
                   color: Color(0xff7d7d7d),
