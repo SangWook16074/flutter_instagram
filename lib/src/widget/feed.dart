@@ -29,8 +29,6 @@ class Feed extends StatefulWidget {
 class _FeedState extends State<Feed> {
   int _current = 0;
 
-  final double _initHeight = Get.size.height * 0.6;
-
   final DraggableScrollableController controller =
       DraggableScrollableController();
 
