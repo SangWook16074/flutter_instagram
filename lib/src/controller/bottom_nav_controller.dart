@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:flutter_instagram/src/bindings/upload_binding.dart';
+import 'package:flutter_instagram/src/view/upload.dart';
 import 'package:get/get.dart';
 
 enum Page { HOME, SEARCH, UPLOAD, REELS, MYPAGE }
@@ -16,10 +18,11 @@ class BottomNavigationController extends GetxController {
     switch (page) {
       case Page.HOME:
       case Page.SEARCH:
-      case Page.UPLOAD:
       case Page.REELS:
       case Page.MYPAGE:
         moveToPage(value);
+      case Page.UPLOAD:
+        moveToUpload();
     }
   }
 
@@ -39,5 +42,9 @@ class BottomNavigationController extends GetxController {
       _pageIndex(_history.last);
       return false;
     }
+  }
+
+  void moveToUpload() {
+    Get.to(() => const Upload(), binding: UploadBinding());
   }
 }
