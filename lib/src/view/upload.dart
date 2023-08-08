@@ -28,17 +28,13 @@ class Upload extends GetView<UploadController> {
         ],
       ),
       body: Obx(
-        () => (!controller.isDone)
-            ? const Center(
-                child: CircularProgressIndicator.adaptive(),
-              )
-            : Column(
-                children: [
-                  _preview(),
-                  _header(),
-                  _images(),
-                ],
-              ),
+        () => Column(
+          children: [
+            _preview(),
+            _header(),
+            _images(),
+          ],
+        ),
       ),
     );
   }
