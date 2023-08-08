@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_instagram/src/controller/upload_controller.dart';
 import 'package:flutter_instagram/src/widget/image_data.dart';
+import 'package:flutter_instagram/src/widget/upload_image.dart';
 import 'package:get/get.dart';
+import 'package:photo_manager/photo_manager.dart';
 
-class Upload extends StatelessWidget {
+class Upload extends GetView<UploadController> {
   const Upload({super.key});
 
   @override
@@ -24,22 +27,37 @@ class Upload extends StatelessWidget {
           )
         ],
       ),
-      body: Column(
-        children: [
-          _preview(),
-          _header(),
-          _images(),
-        ],
+      body: Obx(
+        () => (!controller.isDone)
+            ? const Center(
+                child: CircularProgressIndicator.adaptive(),
+              )
+            : Column(
+                children: [
+                  _preview(),
+                  _header(),
+                  _images(),
+                ],
+              ),
       ),
     );
   }
 
   Widget _preview() {
-    return Container(
-      height: Get.size.width,
-      width: Get.size.width,
-      color: Colors.black,
-    );
+    return (controller.selectedImage != null)
+        ? SizedBox(
+            height: Get.size.width,
+            width: Get.size.width,
+            child: AssetEntityImage(
+              controller.selectedImage!,
+              isOriginal: false,
+              fit: BoxFit.contain,
+            ))
+        : Container(
+            height: Get.size.width,
+            width: Get.size.width,
+            color: Colors.black,
+          );
   }
 
   Widget _header() {
@@ -48,14 +66,19 @@ class Upload extends StatelessWidget {
       children: [
         Row(
           children: [
-            const Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Text(
-                '최근 항목',
-                style: TextStyle(
-                    fontSize: 18,
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: GestureDetector(
+                onTap: controller.moveToChoose,
+                child: Text(
+                  (controller.albums.isNotEmpty)
+                      ? controller.albums[controller.index].name!
+                      : '',
+                  style: const TextStyle(
+                      fontSize: 18,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold),
+                ),
               ),
             ),
             ImageData(
@@ -95,13 +118,19 @@ class Upload extends StatelessWidget {
     return Expanded(
       child: Padding(
         padding: const EdgeInsets.all(1.0),
-        child: GridView.builder(
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 4, mainAxisSpacing: 1, crossAxisSpacing: 1),
-            itemCount: 50,
-            itemBuilder: (context, index) => Container(
-                  color: Colors.blue,
-                )),
+        child: (controller.albums.isNotEmpty)
+            ? GridView.builder(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 4, mainAxisSpacing: 1, crossAxisSpacing: 1),
+                itemCount: controller.albums[controller.index].images!.length,
+                itemBuilder: (context, index) => UploadImage(
+                    onTap: () {
+                      controller.select(
+                          controller.albums[controller.index].images![index]);
+                    },
+                    entity: controller.albums[controller.index].images![index],
+                    fit: BoxFit.cover))
+            : const Center(child: Text('텅')),
       ),
     );
   }
