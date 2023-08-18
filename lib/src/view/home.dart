@@ -25,6 +25,7 @@ class Home extends StatelessWidget {
   Widget _appBar() {
     return SliverAppBar(
       floating: true,
+      snap: true,
       title: ImageData(
         path: ImagePath.logo,
         width: 400,

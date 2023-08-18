@@ -13,7 +13,10 @@ class MyPageInfo extends StatelessWidget {
           count.toString(),
           style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
         ),
-        Text(label),
+        Text(
+          label,
+          style: const TextStyle(fontSize: 18),
+        ),
       ],
     );
   }

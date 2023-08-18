@@ -17,7 +17,7 @@ class MyPageButton extends StatelessWidget {
           child: Center(
               child: Text(
             label,
-            style: const TextStyle(fontWeight: FontWeight.w600),
+            style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
           )),
         ));
   }
