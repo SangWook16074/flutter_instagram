@@ -25,6 +25,7 @@ class Search extends StatelessWidget {
   Widget _appBar() {
     return SliverAppBar(
       floating: true,
+      snap: true,
       title: InkWell(
         highlightColor: Colors.black26,
         borderRadius: BorderRadius.circular(8.0),

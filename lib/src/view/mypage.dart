@@ -20,44 +20,7 @@ class _MyPageState extends State<MyPage> {
       length: 2,
       initialIndex: 0,
       child: Scaffold(
-        appBar: AppBar(
-          title: Row(
-            children: [
-              InkWell(
-                onTap: () {
-                  showModalBottomSheet(
-                      showDragHandle: true,
-                      shape: const RoundedRectangleBorder(
-                          borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(10.0),
-                              topRight: Radius.circular(10.0))),
-                      context: context,
-                      builder: (context) => Container(
-                            height: 400,
-                          ));
-                },
-                child: const Text(
-                  '_ugsxng99',
-                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-                ),
-              ),
-              ImageData(
-                path: ImagePath.arrowDownIcon,
-                width: 60,
-              )
-            ],
-          ),
-          actions: [
-            Padding(
-              padding: const EdgeInsets.all(14.0),
-              child: ImageData(path: ImagePath.upload),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(14.0),
-              child: ImageData(path: ImagePath.menuIcon),
-            ),
-          ],
-        ),
+        appBar: _appBar(),
         body: RefreshIndicator.adaptive(
           notificationPredicate: (notification) {
             if (notification is OverscrollNotification || Platform.isIOS) {
@@ -69,7 +32,6 @@ class _MyPageState extends State<MyPage> {
             await Future.delayed(const Duration(seconds: 1));
           },
           child: NestedScrollView(
-            floatHeaderSlivers: true,
             headerSliverBuilder: (context, innerBoxIsScrolled) {
               return [
                 SliverList(
@@ -188,7 +150,7 @@ class _MyPageState extends State<MyPage> {
             ));
   }
 
-  PreferredSizeWidget _tabs() {
+  Widget _tabs() {
     return TabBar(indicatorColor: Colors.black, tabs: [
       Tab(
         child: ImageData(path: ImagePath.gridViewOff),
@@ -197,5 +159,46 @@ class _MyPageState extends State<MyPage> {
         child: ImageData(path: ImagePath.myTagImageOff),
       ),
     ]);
+  }
+
+  PreferredSizeWidget _appBar() {
+    return AppBar(
+      title: Row(
+        children: [
+          InkWell(
+            onTap: () {
+              showModalBottomSheet(
+                  showDragHandle: true,
+                  shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(10.0),
+                          topRight: Radius.circular(10.0))),
+                  context: context,
+                  builder: (context) => Container(
+                        height: 400,
+                      ));
+            },
+            child: const Text(
+              '_ugsxng99',
+              style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+            ),
+          ),
+          ImageData(
+            path: ImagePath.arrowDownIcon,
+            width: 60,
+          )
+        ],
+      ),
+      actions: [
+        Padding(
+          padding: const EdgeInsets.all(14.0),
+          child: ImageData(path: ImagePath.upload),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(14.0),
+          child: ImageData(path: ImagePath.menuIcon),
+        ),
+      ],
+    );
   }
 }
