@@ -16,6 +16,8 @@ class ImageData extends StatelessWidget {
 }
 
 class ImagePath {
+  static String get instagram => 'assets/images/ci.png';
+  static String get meta => 'assets/images/meta.png';
   static String get homeOn => 'assets/images/bottom_nav_home_on_icon.jpg';
   static String get homeOff => 'assets/images/bottom_nav_home_off_icon.jpg';
   static String get searchOn => 'assets/images/bottom_nav_search_on_icon.jpg';

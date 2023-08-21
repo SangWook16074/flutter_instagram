@@ -1,9 +1,13 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_instagram/src/app.dart';
+import 'package:flutter_instagram/firebase_options.dart';
 import 'package:flutter_instagram/src/bindings/init_binding.dart';
+import 'package:flutter_instagram/src/root.dart';
 import 'package:get/get.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const MyApp());
 }
 
@@ -23,7 +27,7 @@ class MyApp extends StatelessWidget {
             foregroundColor: Colors.black,
             elevation: 0.0,
           )),
-      home: const App(),
+      home: const Root(),
       initialBinding: InitBinding(),
     );
   }

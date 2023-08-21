@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "716412682213",
+    "project_id": "instagram-clone-c2d33",
+    "storage_bucket": "instagram-clone-c2d33.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:716412682213:android:daa1cdc3bcd52bbf7fb90c",
+        "android_client_info": {
+          "package_name": "com.example.flutter_instagram"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "716412682213-gu1sq7k1ogrifj1c8ou98sk63nr6e3l4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEztPR4O0AsqLgbW4D1PrSqPRBNmC1QJU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "716412682213-gu1sq7k1ogrifj1c8ou98sk63nr6e3l4.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "716412682213-o1cpiiiflenmfra23jpbv1fc04ue23ks.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.instagramClone"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:716412682213:android:282eae6f1552dc487fb90c",
+        "android_client_info": {
+          "package_name": "com.example.instagram_clone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "716412682213-gu1sq7k1ogrifj1c8ou98sk63nr6e3l4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEztPR4O0AsqLgbW4D1PrSqPRBNmC1QJU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "716412682213-gu1sq7k1ogrifj1c8ou98sk63nr6e3l4.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "716412682213-o1cpiiiflenmfra23jpbv1fc04ue23ks.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.instagramClone"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
