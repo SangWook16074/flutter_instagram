@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
 
 class LoginTextField extends StatelessWidget {
+  final TextEditingController controller;
   final String label;
 
   const LoginTextField({
     super.key,
     required this.label,
+    required this.controller,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextField(
+      controller: controller,
       cursorColor: Colors.black,
       decoration: InputDecoration(
           labelText: label,

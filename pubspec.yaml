@@ -49,6 +49,7 @@ dependencies:
   pull_to_refresh: ^2.0.0
   firebase_core: ^2.15.1
   firebase_auth: ^4.7.3
+  flutter_native_splash: ^2.3.2
 
 dev_dependencies:
   flutter_test:
@@ -101,3 +102,6 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+flutter_native_splash:
+  color: "#ffffff"
+  image: assets/images/splash.png

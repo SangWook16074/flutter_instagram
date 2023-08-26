@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_instagram/src/controller/auth_controller.dart';
 import 'package:flutter_instagram/src/widget/image_avatar.dart';
 import 'package:flutter_instagram/src/widget/image_data.dart';
 import 'package:flutter_instagram/src/widget/mypage_button.dart';
@@ -192,7 +193,11 @@ class _MyPageState extends State<MyPage> {
       actions: [
         Padding(
           padding: const EdgeInsets.all(14.0),
-          child: ImageData(path: ImagePath.upload),
+          child: GestureDetector(
+              onTap: () {
+                AuthHandler.signOut();
+              },
+              child: ImageData(path: ImagePath.upload)),
         ),
         Padding(
           padding: const EdgeInsets.all(14.0),
