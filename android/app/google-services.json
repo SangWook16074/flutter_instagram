@@ -7,7 +7,7 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:716412682213:android:daa1cdc3bcd52bbf7fb90c",
+        "mobilesdk_app_id": "1:716412682213:android:ce5289930c8165277fb90c",
         "android_client_info": {
           "package_name": "com.example.flutter_instagram"
         }
@@ -31,10 +31,10 @@
               "client_type": 3
             },
             {
-              "client_id": "716412682213-o1cpiiiflenmfra23jpbv1fc04ue23ks.apps.googleusercontent.com",
+              "client_id": "716412682213-iu1sq80e4p4u5bkuh5prkvl5l7p63hf1.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.example.instagramClone"
+                "bundle_id": "com.example.flutterInstagram"
               }
             }
           ]
@@ -67,10 +67,10 @@
               "client_type": 3
             },
             {
-              "client_id": "716412682213-o1cpiiiflenmfra23jpbv1fc04ue23ks.apps.googleusercontent.com",
+              "client_id": "716412682213-iu1sq80e4p4u5bkuh5prkvl5l7p63hf1.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.example.instagramClone"
+                "bundle_id": "com.example.flutterInstagram"
               }
             }
           ]

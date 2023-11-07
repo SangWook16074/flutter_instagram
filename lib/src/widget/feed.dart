@@ -2,31 +2,25 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:expandable_text/expandable_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_instagram/src/data/model/feed.dart';
 import 'package:flutter_instagram/src/widget/comment_bottom_sheet.dart';
 import 'package:flutter_instagram/src/widget/image_avatar.dart';
 import 'package:flutter_instagram/src/widget/image_data.dart';
 import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-class Feed extends StatefulWidget {
-  final String userUrl;
-  final String userName;
-  final List<String> images;
-  final int countLikes;
-  final int countComment;
-  const Feed(
-      {super.key,
-      required this.userUrl,
-      required this.userName,
-      required this.images,
-      required this.countLikes,
-      required this.countComment});
+class FeedWidget extends StatefulWidget {
+  final Feed feed;
+  const FeedWidget({
+    super.key,
+    required this.feed,
+  });
 
   @override
-  State<Feed> createState() => _FeedState();
+  State<FeedWidget> createState() => _FeedWidgetState();
 }
 
-class _FeedState extends State<Feed> {
+class _FeedWidgetState extends State<FeedWidget> {
   int _current = 0;
 
   final DraggableScrollableController controller =
@@ -54,14 +48,14 @@ class _FeedState extends State<Feed> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: ImageAvatar(
-                url: widget.userUrl,
+                url: widget.feed.userUrl,
                 type: AvatarType.BASIC,
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
-                widget.userName,
+                widget.feed.userName,
                 style: const TextStyle(
                     color: Colors.black,
                     fontSize: 15,
@@ -80,14 +74,14 @@ class _FeedState extends State<Feed> {
 
   Widget _images() {
     return CarouselSlider.builder(
-        itemCount: widget.images.length,
+        itemCount: widget.feed.images.length,
         itemBuilder: (context, index, realIndex) {
           return Container(
             color: Colors.black,
             width: Get.size.width,
             height: Get.size.width,
             child: CachedNetworkImage(
-              imageUrl: widget.images[index],
+              imageUrl: widget.feed.images[index],
               fit: BoxFit.cover,
             ),
           );
@@ -127,11 +121,11 @@ class _FeedState extends State<Feed> {
             ),
           ],
         ),
-        (widget.images.length == 1)
+        (widget.feed.images.length == 1)
             ? Container()
             : AnimatedSmoothIndicator(
                 activeIndex: _current,
-                count: widget.images.length,
+                count: widget.feed.images.length,
                 effect: const ScrollingDotsEffect(
                     dotColor: Colors.black26,
                     activeDotColor: Colors.blue,
@@ -178,7 +172,7 @@ class _FeedState extends State<Feed> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Text(
-              '좋아요 ${widget.countLikes}개',
+              '좋아요 ${widget.feed.countLike}개',
               style: const TextStyle(fontWeight: FontWeight.bold),
             ),
           ),
@@ -188,7 +182,7 @@ class _FeedState extends State<Feed> {
               '컨텐츠 입니다.\n컨텐츠 입니다.\n컨텐츠 입니다.\n컨텐츠 입니다.\n컨텐츠 입니다.',
               expandText: '더보기',
               linkColor: Colors.grey,
-              prefixText: widget.userName,
+              prefixText: widget.feed.userName,
               prefixStyle:
                   const TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
             ),
@@ -198,7 +192,7 @@ class _FeedState extends State<Feed> {
             child: GestureDetector(
               onTap: () {},
               child: Text(
-                '댓글 ${widget.countComment}개 모두 보기',
+                '댓글 ${widget.feed.countComment}개 모두 보기',
                 style: const TextStyle(color: Colors.grey),
               ),
             ),

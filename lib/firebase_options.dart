@@ -51,7 +51,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyCEztPR4O0AsqLgbW4D1PrSqPRBNmC1QJU',
-    appId: '1:716412682213:android:daa1cdc3bcd52bbf7fb90c',
+    appId: '1:716412682213:android:ce5289930c8165277fb90c',
     messagingSenderId: '716412682213',
     projectId: 'instagram-clone-c2d33',
     storageBucket: 'instagram-clone-c2d33.appspot.com',
@@ -59,7 +59,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyDEYjYFDr8sfU9XsqfXAUAP9g_wNIy3AZE',
-    appId: '1:716412682213:ios:149e291af7d9e4cf7fb90c',
+    appId: '1:716412682213:ios:23d165fcd60670f97fb90c',
     messagingSenderId: '716412682213',
     projectId: 'instagram-clone-c2d33',
     storageBucket: 'instagram-clone-c2d33.appspot.com',
